@@ -36,8 +36,9 @@ class FriendsAdapter(userSelectedListener: UserSelectedListener, var context: Co
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
             with(mFilteredUserList[position]){
-                binding.tvFirstName.text = this.firstName
-                binding.tvLastName.text = this.lastName
+                val userName = this.firstName + " " + this.lastName
+                binding.tvFirstName.text = userName
+//                binding.tvLastName.text = this.lastName
 
                 Glide.with(binding.ivUserProfile).load(this.avatar).error(R.mipmap.ic_launcher)
                     .into(binding.ivUserProfile)

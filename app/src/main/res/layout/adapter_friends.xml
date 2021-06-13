@@ -30,15 +30,15 @@
             android:id="@+id/tvFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/ivUserProfile"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/first_names"/>
+            tools:text="@tools:sample/first_names" />
 
-        <!--Text View for showing the last name-->
+       <!-- &lt;!&ndash;Text View for showing the last name&ndash;&gt;
         <TextView
             android:id="@+id/tvLastName"
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="@id/tvFirstName"
             app:layout_constraintTop_toBottomOf="@id/tvFirstName"
-            tools:text="@tools:sample/last_names"/>
+            tools:text="@tools:sample/last_names"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
