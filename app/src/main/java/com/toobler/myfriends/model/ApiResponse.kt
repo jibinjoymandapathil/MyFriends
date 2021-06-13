@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
+/*Pojo class for Api response*/
 class ApiResponse {
     @SerializedName("page")
     @Expose

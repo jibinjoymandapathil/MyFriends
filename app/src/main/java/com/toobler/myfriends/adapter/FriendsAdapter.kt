@@ -13,7 +13,7 @@ import com.toobler.myfriends.R
 import com.toobler.myfriends.databinding.AdapterFriendsBinding
 import com.toobler.myfriends.model.User
 
-class FriendsAdapter(userSelectedListener: UserSelectedListener, var context: Context):
+class FriendsAdapter(userSelectedListener: UserSelectedListener, var context: Context) :
     RecyclerView.Adapter<FriendsAdapter.ViewHolder>(), Filterable {
 
     var mUserList = ArrayList<User>()
@@ -25,17 +25,16 @@ class FriendsAdapter(userSelectedListener: UserSelectedListener, var context: Co
         fun onUserSelected(user: User)
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = AdapterFriendsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            AdapterFriendsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return ViewHolder(binding)
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(holder){
-            with(mFilteredUserList[position]){
+        with(holder) {
+            with(mFilteredUserList[position]) {
                 val userName = this.firstName + " " + this.lastName
                 binding.tvFirstName.text = userName
 //                binding.tvLastName.text = this.lastName
@@ -50,7 +49,7 @@ class FriendsAdapter(userSelectedListener: UserSelectedListener, var context: Co
         }
     }
 
-    fun updateUserData(userList: ArrayList<User>){
+    fun updateUserData(userList: ArrayList<User>) {
         mUserList = userList
         mFilteredUserList = userList
         notifyDataSetChanged()
@@ -60,8 +59,8 @@ class FriendsAdapter(userSelectedListener: UserSelectedListener, var context: Co
         return mFilteredUserList.size
     }
 
-    inner class ViewHolder(val binding: AdapterFriendsBinding): RecyclerView.ViewHolder(binding.root)
-
+    inner class ViewHolder(val binding: AdapterFriendsBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun getFilter(): Filter? {
         return object : Filter() {

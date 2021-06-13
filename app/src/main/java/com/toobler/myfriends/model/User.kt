@@ -3,7 +3,7 @@ package com.toobler.myfriends.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-
+/*class contains the user related data*/
 class User {
 
     @SerializedName("id")

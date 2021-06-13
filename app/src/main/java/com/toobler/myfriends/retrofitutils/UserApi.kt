@@ -6,15 +6,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+/*Class will handle the Retrofit functionality*/
+
 interface UserApi {
     @GET("users")
-    open fun getAllUsers(): Call<ApiResponse?>
+    fun getAllUsers(): Call<ApiResponse?>
 
     companion object {
 
         private var BASE_URL = "https://reqres.in/api/"
 
-        fun create() : UserApi {
+        /*methode will handle the retrofit instance creation*/
+        fun create(): UserApi {
 
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())

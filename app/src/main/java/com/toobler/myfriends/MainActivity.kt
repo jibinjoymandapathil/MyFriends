@@ -1,5 +1,7 @@
 package com.toobler.myfriends
 
+/*Home Page/launcher Activity*/
+
 import android.app.SearchManager
 import android.content.Intent
 import android.os.Bundle
@@ -26,7 +28,8 @@ private var mUserList: ArrayList<User> = ArrayList()
 
 private lateinit var searchView: SearchView
 
-class MainActivity : AppCompatActivity(), MainActivityNavigator,  FriendsAdapter.UserSelectedListener{
+class MainActivity : AppCompatActivity(), MainActivityNavigator,
+    FriendsAdapter.UserSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity(), MainActivityNavigator,  FriendsAdapter
     }
 
     /*init view model*/
-    private fun initViewModel(){
+    private fun initViewModel() {
         val factory: ViewModelProvider.Factory = NewInstanceFactory()
         mViewModel = ViewModelProvider(this, factory).get(MainActivityViewModel::class.java)
         mViewModel.setNavigatorCallBack(this)
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity(), MainActivityNavigator,  FriendsAdapter
     }
 
     /*initialize the recyclerView Adapter */
-    private fun initAdapter(){
+    private fun initAdapter() {
         mRvAdapter = FriendsAdapter(this, this)
 
         bind?.rvUserList?.adapter = mRvAdapter
@@ -67,7 +70,7 @@ class MainActivity : AppCompatActivity(), MainActivityNavigator,  FriendsAdapter
     //open the details page with selected user data
     override fun onUserSelected(user: User) {
         val fullName = user.firstName + " " + user.lastName
-        val userData = UserData(fullName, user.email!!, user.avatar!! )
+        val userData = UserData(fullName, user.email!!, user.avatar!!)
 
         val intent = Intent(this, UserDetailsActivity::class.java)
         intent.putExtra(PublicConstance.ARG_USER_DATA, userData)

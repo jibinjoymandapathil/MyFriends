@@ -16,7 +16,7 @@ class UserDetailsActivity : Activity() {
 
     private lateinit var binding: ActivityUserDetailsBinding
 
-    private var userData:UserData? = null
+    private var userData: UserData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class UserDetailsActivity : Activity() {
         binding.btSendMail.setOnClickListener {
             if (Utils.isValidEmail(userData?.emailId!!)) {
                 sendAnEmail(userData?.emailId!!)
-            }else{
+            } else {
                 Toast.makeText(
                     this,
                     getString(R.string.mail_id_validation_warning),
@@ -51,7 +51,7 @@ class UserDetailsActivity : Activity() {
     }
 
     /*method for send an email to the corresponding user*/
-    private fun sendAnEmail(emailId: String){
+    private fun sendAnEmail(emailId: String) {
         val i = Intent(Intent.ACTION_SEND)
         i.type = "text/plain"
         i.putExtra(Intent.EXTRA_EMAIL, arrayOf(emailId))
@@ -67,7 +67,6 @@ class UserDetailsActivity : Activity() {
             ).show()
         }
     }
-
 
 
 }
